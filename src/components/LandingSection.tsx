@@ -10,9 +10,12 @@ const LandingSection = ({ onStart }: LandingSectionProps) => {
           Self-discovery starts here
         </div>
 
-         <h1 className="text-5xl md:text-7xl font-serif font-semibold leading-tight tracking-tight text-foreground">
-          Lumina: PCOS Type Discovery Quiz
+        <h1 className="text-5xl md:text-7xl font-serif font-semibold leading-tight tracking-tight text-foreground">
+          Lumina
         </h1>
+        <p className="text-xl md:text-2xl font-serif text-muted-foreground">
+          PCOS Type Discovery Quiz
+        </p>
 
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto">
           A logic-based, 10-question assessment to identify your unique PCOS drivers—from insulin resistance to inflammation. Designed by a Registered Nutritionist.
