@@ -62,14 +62,14 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
             {question.question}
           </h2>
 
-          <div className="mt-8 space-y-3">
+          <div className="mt-8 flex gap-4 justify-center">
             {question.options.map((option, idx) => {
               const isSelected = answers[currentQ] === idx;
               return (
                 <button
                   key={idx}
                   onClick={() => handleSelect(idx)}
-                  className={`w-full text-left px-6 py-4 rounded-lg border transition-all duration-200 text-sm md:text-base ${
+                  className={`px-10 py-4 rounded-lg border transition-all duration-200 text-sm md:text-base font-medium ${
                     isSelected
                       ? "bg-primary text-primary-foreground border-primary shadow-md"
                       : "glass border-border hover:border-primary/40 hover:shadow-sm text-foreground"
