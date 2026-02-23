@@ -10,20 +10,19 @@ const LandingSection = ({ onStart }: LandingSectionProps) => {
           Self-discovery starts here
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-serif font-semibold leading-tight tracking-tight text-foreground">
-          Lumina
+         <h1 className="text-5xl md:text-7xl font-serif font-semibold leading-tight tracking-tight text-foreground">
+          Lumina: PCOS Type Discovery Quiz
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto">
-          A gentle, 10-question journey to explore your emotional patterns and
-          build self-awareness — no judgment, just insight.
+          A logic-based, 10-question assessment to identify your unique PCOS drivers—from insulin resistance to inflammation. Designed by a Registered Nutritionist.
         </p>
 
         <button
           onClick={onStart}
           className="inline-flex items-center justify-center px-10 py-4 rounded-lg bg-primary text-primary-foreground font-medium text-base transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] shadow-md"
         >
-          Begin Your Journey
+          Begin Your Discovery
         </button>
 
         <p className="text-xs text-muted-foreground pt-4">
