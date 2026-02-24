@@ -6,37 +6,37 @@ export interface QuizQuestion {
 
 export const quizQuestions: QuizQuestion[] = [
   {
-    question: "Has a close female family member been diagnosed with Polycystic Ovary Syndrome (mother, sister, aunt)?",
+    question: "I have a close female family member (mother, sister, or aunt) who has been diagnosed with PCOS.",
     options: ["Yes", "No"],
     category: "General PCOS",
   },
   {
-    question: "Are your periods irregular (less than 21 days apart or longer than 35 days apart, such as every second or third month)? Only answer this question if you have had your period for longer than two years.",
+    question: "I have irregular periods, occurring less than 21 days or more than 35 days apart.",
     options: ["Yes", "No"],
     category: "General PCOS",
   },
   {
-    question: "Do you have more body hair than your peers, such as on your face or stomach?",
+    question: "I have more body hair than my peers, particularly on my face, chest, or stomach.",
     options: ["Yes", "No"],
     category: "General PCOS",
   },
   {
-    question: "Do you have severe acne?",
+    question: "I have persistent or severe acne that feels difficult to manage.",
     options: ["Yes", "No"],
     category: "General PCOS",
   },
   {
-    question: "I have chronic digestive problems, such as bloating, diarrhea, ulcers, reflux, or indigestion.",
+    question: "I have regular digestive issues, such as bloating, diarrhea, ulcers, reflux, or indigestion.",
     options: ["Yes", "No"],
     category: "Inflammation",
   },
   {
-    question: "I drink a lot of coffee to get through the day, overwork, or overexercise without taking time to relax.",
+    question: "I have a habit of relying on caffeine, overworking, or overexercising without enough rest.",
     options: ["Yes", "No"],
     category: "Adrenal fatigue",
   },
   {
-    question: "I crave carbohydrates, such as rice, bread, and sugary sweets.",
+    question: "I have intense cravings for carbohydrates and sugary foods like rice, bread, or sweets.",
     options: ["Yes", "No"],
     category: "Insulin resistance",
   },
@@ -46,7 +46,7 @@ export const quizQuestions: QuizQuestion[] = [
     category: "Insulin resistance",
   },
   {
-    question: "I'm constantly tired and lethargic.",
+    question: "I have a constant feeling of being tired and lethargic, even after resting.",
     options: ["Often", "Seldom"],
     category: "Hypothyroid",
   },
