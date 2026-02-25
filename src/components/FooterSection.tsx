@@ -46,7 +46,7 @@ const FooterSection = () => {
 
         <div className="pt-4 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-muted-foreground">
           <span className="whitespace-nowrap text-[10px] md:text-[11px] tracking-[-0.02em]">
-            Built by Triana Dessy, S.Gz — Registered Nutritionist
+            Built by Triana Dessy — Your Registered Nutritionist
           </span>
           <span className="whitespace-nowrap text-[10px] md:text-[11px] tracking-[-0.02em] opacity-60">
             © 2026 Lumina · For educational purposes only
