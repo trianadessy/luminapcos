@@ -14,14 +14,14 @@ const FooterSection = () => {
                 Clinical Disclaimer
               </h4>
               <p className="text-xs text-muted-foreground leading-[1.8]">
-                Lumina is an educational tool designed by Registered Nutritionist
-                Triana Dessy, S.Gz, for self-reflection and personal insight into
+                Lumina is an educational tool designed by Registered Nutritionist{" "}
+                <strong className="text-foreground/70">Triana Dessy, S.Gz</strong>, for self-reflection and personal insight into
                 PCOS drivers. It is <strong className="text-foreground/70">not a diagnostic tool</strong> and
                 does not constitute medical, nutritional, or clinical advice. If you
-                experience PCOS-related symptoms, please consult an{" "}
-                <strong className="text-foreground/70">Obstetrician/Gynecologist</strong> and a{" "}
-                <strong className="text-foreground/70">Registered Dietitian Nutritionist (RDN)</strong>.
+                experience PCOS-related symptoms, please consult an
+                Obstetrician/Gynecologist and a Registered Dietitian Nutritionist (RDN).
               </p>
+            
             </div>
           </div>
 
