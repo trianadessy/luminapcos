@@ -44,9 +44,13 @@ const FooterSection = () => {
           </div>
         </div>
 
-        <div className="pt-4 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-muted-foreground tracking-wide">
-          <span>© 2026 Lumina by Triana Dessy, S.Gz — For educational purposes only.</span>
-          <span className="opacity-60">Not a substitute for professional clinical care.</span>
+        <div className="pt-4 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-muted-foreground">
+          <span className="whitespace-nowrap text-[10px] md:text-[11px] tracking-[-0.02em]">
+            Built by Triana Dessy, S.Gz — Registered Nutritionist
+          </span>
+          <span className="whitespace-nowrap text-[10px] md:text-[11px] tracking-[-0.02em] opacity-60">
+            © 2026 Lumina · For educational purposes only
+          </span>
         </div>
       </div>
     </footer>
