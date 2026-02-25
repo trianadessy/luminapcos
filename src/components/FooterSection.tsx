@@ -1,36 +1,52 @@
+import { ShieldCheck, Lock } from "lucide-react";
+
 const FooterSection = () => {
   return (
-    <footer className="w-full border-t border-border bg-card/50 px-6 py-12">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="glass rounded-lg p-6 space-y-4">
-          <div className="space-y-2">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Clinical Disclaimer
-            </h4>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Lumina is an educational tool designed by Registered Nutritionist Triana Dessy, S.Gz,
-              for self-reflection and personal insight into PCOS drivers. It is{" "}
-              <strong>not a diagnostic tool</strong> and does not constitute medical, nutritional, or
-              clinical advice. If you experience PCOS-related symptoms, please consult an{" "}
-              <strong>Obstetrician/Gynecologist</strong> and a{" "}
-              <strong>Registered Dietitian Nutritionist (RDN)</strong>.
-            </p>
+    <footer className="w-full border-t border-border bg-background px-6 py-16">
+      <div className="max-w-3xl mx-auto space-y-8">
+        <div className="space-y-6">
+          <div className="flex items-start gap-4">
+            <div className="mt-0.5 p-2 rounded-full bg-primary/10 text-primary shrink-0">
+              <ShieldCheck className="w-4 h-4" />
+            </div>
+            <div className="space-y-1.5">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/70">
+                Clinical Disclaimer
+              </h4>
+              <p className="text-xs text-muted-foreground leading-[1.8]">
+                Lumina is an educational tool designed by Registered Nutritionist
+                Triana Dessy, S.Gz, for self-reflection and personal insight into
+                PCOS drivers. It is <strong className="text-foreground/70">not a diagnostic tool</strong> and
+                does not constitute medical, nutritional, or clinical advice. If you
+                experience PCOS-related symptoms, please consult an{" "}
+                <strong className="text-foreground/70">Obstetrician/Gynecologist</strong> and a{" "}
+                <strong className="text-foreground/70">Registered Dietitian Nutritionist (RDN)</strong>.
+              </p>
+            </div>
           </div>
 
-          <div className="border-t border-border pt-3 space-y-2">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Data Privacy
-            </h4>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              No personal health data is collected, stored, or transmitted. All responses remain in
-              your local browser and are discarded when you close the page.
-            </p>
+          <div className="w-16 h-px bg-border mx-auto" />
+
+          <div className="flex items-start gap-4">
+            <div className="mt-0.5 p-2 rounded-full bg-primary/10 text-primary shrink-0">
+              <Lock className="w-4 h-4" />
+            </div>
+            <div className="space-y-1.5">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/70">
+                Data Privacy
+              </h4>
+              <p className="text-xs text-muted-foreground leading-[1.8]">
+                No personal health data is collected, stored, or transmitted. All
+                responses remain in your local browser and are discarded when you
+                close the page.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <span>© 2026 Lumina by Triana Dessy, S.Gz. For educational purposes only.</span>
-          <span>Not a substitute for professional clinical care.</span>
+        <div className="pt-4 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-muted-foreground tracking-wide">
+          <span>© 2026 Lumina by Triana Dessy, S.Gz — For educational purposes only.</span>
+          <span className="opacity-60">Not a substitute for professional clinical care.</span>
         </div>
       </div>
     </footer>
