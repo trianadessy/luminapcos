@@ -11,8 +11,11 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
   const [currentQ, setCurrentQ] = useState(0);
   const [animating, setAnimating] = useState(false);
   const total = quizQuestions.length;
-  const question = quizQuestions[currentQ];
-  const progress = ((currentQ + (answers[currentQ] !== undefined ? 1 : 0)) / total) * 100;
+  const safeQ = Math.min(currentQ, total - 1);
+  const question = quizQuestions[safeQ];
+  const progress = ((safeQ + (answers[safeQ] !== undefined ? 1 : 0)) / total) * 100;
+
+  if (!question) return null;
 
   const handleSelect = (optionIdx: number) => {
     onAnswer(currentQ, optionIdx);
