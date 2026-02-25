@@ -1,3 +1,5 @@
+import luminaLogo from "@/assets/lumina-logo.png";
+
 interface LandingSectionProps {
   onStart: () => void;
 }
@@ -6,6 +8,8 @@ const LandingSection = ({ onStart }: LandingSectionProps) => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
       <div className="max-w-2xl text-center space-y-8">
+        <img src={luminaLogo} alt="Lumina logo" className="w-24 h-24 mx-auto" />
+
         <div className="inline-block px-4 py-1.5 rounded-full bg-secondary text-sm font-medium text-secondary-foreground mb-4">
           PCOS Type Discovery Quiz
         </div>
