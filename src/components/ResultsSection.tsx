@@ -8,74 +8,41 @@ interface ResultsSectionProps {
 const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
   return (
     <section className="min-h-screen flex flex-col items-center px-6 py-20">
-      <div className="w-full max-w-4xl space-y-10">
+      <div className="w-full max-w-3xl space-y-10">
         {/* Header */}
         <div className="text-center space-y-4">
           <div className="inline-block px-4 py-1.5 rounded-full bg-secondary text-sm font-medium text-secondary-foreground">
-            Your Result
+            Your PCOS Type
           </div>
           <h1 className="text-4xl md:text-5xl font-serif font-semibold text-foreground">
-            {result.title}
+            {result.type}
           </h1>
-          <p className="text-lg text-muted-foreground italic">{result.subtitle}</p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Description — spans 2 cols */}
-          <div className="md:col-span-2 glass rounded-lg p-8 space-y-3">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              About You
-            </h3>
-            <p className="text-foreground leading-relaxed">{result.description}</p>
-          </div>
-
-          {/* Affirmation */}
-          <div className="glass rounded-lg p-8 flex flex-col justify-center bg-primary/5">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-              Daily Affirmation
-            </h3>
-            <p className="text-foreground font-serif text-lg italic leading-relaxed">
-              "{result.affirmation}"
-            </p>
-          </div>
-
-          {/* Strengths */}
+        {/* Content Cards */}
+        <div className="space-y-6">
+          {/* What's Actually Happening */}
           <div className="glass rounded-lg p-8 space-y-3">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Your Strengths
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+              What's Actually Happening
             </h3>
-            <ul className="space-y-2">
-              {result.strengths.map((s, i) => (
-                <li key={i} className="flex items-center gap-2 text-foreground text-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  {s}
-                </li>
-              ))}
-            </ul>
+            <p className="text-foreground leading-relaxed">{result.whatsHappening}</p>
           </div>
 
-          {/* Growth Areas */}
+          {/* Why This Matters */}
           <div className="glass rounded-lg p-8 space-y-3">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Growth Areas
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Why This Matters
             </h3>
-            <ul className="space-y-2">
-              {result.growthAreas.map((g, i) => (
-                <li key={i} className="flex items-center gap-2 text-foreground text-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />
-                  {g}
-                </li>
-              ))}
-            </ul>
+            <p className="text-foreground leading-relaxed">{result.whyItMatters}</p>
           </div>
 
-          {/* Daily Practice */}
-          <div className="glass rounded-lg p-8 space-y-3">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Try This Today
+          {/* Your Next Step */}
+          <div className="glass rounded-lg p-8 space-y-3 bg-primary/5">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Your Next Step
             </h3>
-            <p className="text-foreground text-sm leading-relaxed">{result.dailyPractice}</p>
+            <p className="text-foreground leading-relaxed">{result.nextStep}</p>
           </div>
         </div>
 
