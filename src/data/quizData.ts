@@ -58,86 +58,63 @@ export const quizQuestions: QuizQuestion[] = [
 ];
 
 export interface ResultProfile {
-  title: string;
-  subtitle: string;
-  description: string;
-  strengths: string[];
-  growthAreas: string[];
-  dailyPractice: string;
-  affirmation: string;
+  type: string;
+  whatsHappening: string;
+  whyItMatters: string;
+  nextStep: string;
 }
 
 export function computeResult(answers: Record<number, number>): ResultProfile {
-  // Count "Yes" or "Often" answers (index 0) per category
   const categoryScores: Record<string, number> = {};
-  
+
   quizQuestions.forEach((q, i) => {
     if (!categoryScores[q.category]) categoryScores[q.category] = 0;
     if (answers[i] === 0) categoryScores[q.category]++;
   });
 
-  // Find the dominant PCOS driver (excluding General PCOS)
   const drivers = Object.entries(categoryScores).filter(([cat]) => cat !== "General PCOS");
   drivers.sort((a, b) => b[1] - a[1]);
-  const topDriver = drivers[0]?.[0] || "General PCOS";
-  const generalScore = categoryScores["General PCOS"] || 0;
+  const topDriver = drivers[0]?.[0] || "Inflammation";
 
   if (topDriver === "Insulin resistance" && categoryScores["Insulin resistance"] >= 1) {
     return {
-      title: "Insulin Resistant PCOS",
-      subtitle: "Your primary driver appears to be insulin resistance",
-      description:
-        "Insulin resistant PCOS is the most common type, affecting approximately 70% of those with PCOS. Your body may struggle to use insulin effectively, leading to higher blood sugar levels and increased androgen production.",
-      strengths: ["Awareness of carbohydrate sensitivity", "Recognising blood sugar patterns"],
-      growthAreas: ["Blood sugar management", "Anti-inflammatory nutrition", "Regular movement"],
-      dailyPractice: "Pair carbohydrates with protein and healthy fats at every meal to stabilise blood sugar levels.",
-      affirmation: "Understanding my body's signals is the first step toward balance.",
+      type: "Insulin Resistance",
+      whatsHappening:
+        "Your body is producing insulin but struggling to use it efficiently. This causes your pancreas to release even more insulin, which signals your ovaries to produce excess androgens (male hormones). The result is a hormonal cascade that disrupts your cycle, triggers cravings, and makes it harder to maintain a healthy weight.",
+      whyItMatters:
+        "Unmanaged insulin resistance doesn't just affect your periods — it increases your risk of type 2 diabetes, cardiovascular issues, and chronic inflammation over time. The sugar cravings and energy crashes you experience aren't a lack of willpower; they're your body's chemistry working against you.",
+      nextStep:
+        "Start pairing every carbohydrate with protein and healthy fat — this simple change slows glucose absorption and reduces insulin spikes. For example, add nuts to your rice or have eggs with your toast. Consider asking your doctor about a fasting insulin test to get a clearer picture of where you stand.",
     };
   } else if (topDriver === "Adrenal fatigue" && categoryScores["Adrenal fatigue"] >= 1) {
     return {
-      title: "Adrenal PCOS",
-      subtitle: "Your primary driver appears to be adrenal stress",
-      description:
-        "Adrenal PCOS is driven by chronic stress rather than insulin resistance. Your adrenal glands may be producing excess DHEA-S, contributing to hormonal imbalance.",
-      strengths: ["Drive and determination", "High capacity for work"],
-      growthAreas: ["Stress management", "Rest and recovery", "Nervous system regulation"],
-      dailyPractice: "Incorporate 10 minutes of intentional rest or breathwork daily — your body needs permission to slow down.",
-      affirmation: "Rest is not laziness — it is medicine for my hormones.",
+      type: "Adrenal Fatigue",
+      whatsHappening:
+        "Your adrenal glands have been working overtime due to chronic stress, producing excess cortisol and DHEA-S. These stress hormones are disrupting your reproductive hormones, mimicking or worsening PCOS symptoms. Your body is essentially stuck in survival mode, prioritising stress response over fertility and balance.",
+      whyItMatters:
+        "When your nervous system is constantly activated, it suppresses ovulation, disrupts sleep quality, and breaks down muscle while storing fat — especially around the midsection. The exhaustion, anxiety, and hormonal irregularities you feel are your body's way of telling you it can't sustain this pace.",
+      nextStep:
+        "Introduce a daily 10-minute nervous system reset — this could be box breathing, gentle yoga, or simply lying down with your legs elevated. Cut back on high-intensity exercise temporarily and prioritise 7–9 hours of sleep. Your hormones heal when your body feels safe.",
     };
   } else if (topDriver === "Inflammation" && categoryScores["Inflammation"] >= 1) {
     return {
-      title: "Inflammatory PCOS",
-      subtitle: "Your primary driver appears to be chronic inflammation",
-      description:
-        "Inflammatory PCOS is characterised by chronic low-grade inflammation that disrupts ovulation and stimulates excess androgen production. Gut health often plays a central role.",
-      strengths: ["Body awareness", "Attention to digestive signals"],
-      growthAreas: ["Gut healing", "Anti-inflammatory diet", "Identifying food sensitivities"],
-      dailyPractice: "Keep a food-symptom diary to identify triggers — knowledge is your most powerful tool.",
-      affirmation: "Healing my gut is healing my hormones.",
+      type: "Inflammation",
+      whatsHappening:
+        "Your body is experiencing chronic low-grade inflammation that is interfering with normal ovarian function and driving excess androgen production. This inflammation often originates in the gut — through food sensitivities, a disrupted microbiome, or intestinal permeability — and sends signals that keep your immune system on high alert.",
+      whyItMatters:
+        "Chronic inflammation doesn't just cause bloating and digestive discomfort — it actively blocks ovulation, worsens acne and hair growth, and makes your body more resistant to insulin over time. It's a hidden driver that, left unaddressed, can make every other PCOS symptom harder to manage.",
+      nextStep:
+        "Begin a two-week food-symptom diary to identify your personal inflammatory triggers. Common culprits include gluten, dairy, refined sugar, and processed seed oils. Focus on adding anti-inflammatory foods like fatty fish, turmeric, leafy greens, and fermented foods to support gut healing.",
     };
-  } else if (topDriver === "Hypothyroid" && categoryScores["Hypothyroid"] >= 1) {
+  } else {
     return {
-      title: "Hypothyroid-Related PCOS",
-      subtitle: "Your symptoms may be linked to thyroid function",
-      description:
-        "Hypothyroidism and PCOS share overlapping symptoms including fatigue, weight changes, and irregular cycles. An underactive thyroid can worsen or mimic PCOS symptoms.",
-      strengths: ["Recognising fatigue patterns", "Seeking answers proactively"],
-      growthAreas: ["Thyroid testing (TSH, T3, T4)", "Energy management", "Nutrient support (selenium, iodine, zinc)"],
-      dailyPractice: "Prioritise 7–9 hours of sleep and consider asking your GP for a full thyroid panel.",
-      affirmation: "Fatigue is not failure — it's my body asking for support.",
+      type: "Hypothyroid",
+      whatsHappening:
+        "Your thyroid gland may not be producing enough hormones to keep your metabolism, energy, and reproductive system running optimally. Hypothyroidism and PCOS frequently coexist, and an underactive thyroid can slow everything down — your cycle, your digestion, your mood, and your ability to lose weight.",
+      whyItMatters:
+        "An undiagnosed thyroid issue can make PCOS treatment feel ineffective because you're addressing symptoms without tackling a root cause. The persistent fatigue, brain fog, and cold sensitivity you may experience aren't just PCOS — they could be your thyroid calling for attention.",
+      nextStep:
+        "Ask your GP for a comprehensive thyroid panel that includes TSH, free T3, free T4, and thyroid antibodies — not just TSH alone. In the meantime, support your thyroid with selenium-rich foods (Brazil nuts), iodine (seaweed, eggs), and adequate zinc. Prioritise consistent sleep to give your thyroid the rest it needs.",
     };
   }
-
-  return {
-    title: "General PCOS Profile",
-    subtitle: "Your results suggest general PCOS indicators",
-    description:
-      generalScore >= 2
-        ? "You show several hallmark signs of PCOS. A formal diagnosis typically requires at least two of three criteria: irregular periods, elevated androgens, and polycystic ovaries on ultrasound."
-        : "Your responses don't strongly indicate a single PCOS driver, but PCOS presents differently in everyone. Consider working with a healthcare professional for personalised guidance.",
-    strengths: ["Taking initiative in understanding your health", "Willingness to explore root causes"],
-    growthAreas: ["Comprehensive hormone testing", "Working with a PCOS-informed practitioner", "Lifestyle foundations"],
-    dailyPractice: "Start with the basics: balanced meals, regular movement, quality sleep, and stress management.",
-    affirmation: "Every step I take toward understanding my body is a step toward healing.",
-  };
 }
