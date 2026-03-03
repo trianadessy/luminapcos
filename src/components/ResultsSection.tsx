@@ -25,7 +25,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
         {/* Content Cards */}
         <div className="space-y-6">
           {/* What's Actually Happening */}
-          <div className="glass rounded-lg p-8 space-y-3">
+          <div className="rounded-[24px] p-8 space-y-3 bg-background/80" style={{ boxShadow: '0 0 25px 5px rgba(255, 255, 255, 0.6)' }}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               What's Actually Happening
             </h3>
@@ -33,7 +33,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Why This Matters */}
-          <div className="glass rounded-lg p-8 space-y-3">
+          <div className="rounded-[24px] p-8 space-y-3 bg-background/80" style={{ boxShadow: '0 0 25px 5px rgba(255, 255, 255, 0.6)' }}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Why This Matters
             </h3>
