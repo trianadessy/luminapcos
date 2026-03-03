@@ -21,18 +21,17 @@ const Sparkle = ({ style }: { style: React.CSSProperties }) => (
 );
 
 const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
-  const sparkles = useMemo(() =>
-    Array.from({ length: 14 }, (_, i) => ({
-      left: `${8 + Math.random() * 84}%`,
+  const sparkles = useMemo(() => {
+    const anims = ['sparkle-float', 'sparkle-drift', 'sparkle-twinkle'];
+    return Array.from({ length: 20 }, (_, i) => ({
+      left: `${5 + Math.random() * 90}%`,
       top: `${5 + Math.random() * 90}%`,
-      animationDelay: `${i * 0.7 + Math.random() * 2}s`,
-      animationDuration: `${3 + Math.random() * 3}s`,
-      fontSize: `${6 + Math.random() * 8}px`,
-      animation: i % 2 === 0
-        ? `sparkle-float ${3 + Math.random() * 3}s ease-in-out ${i * 0.7 + Math.random() * 2}s infinite`
-        : `sparkle-drift ${4 + Math.random() * 3}s ease-in-out ${i * 0.5 + Math.random() * 2}s infinite`,
-    })), []
-  );
+      animation: `${anims[i % 3]} ${1.5 + Math.random() * 2}s ease-in-out ${i * 0.3 + Math.random()}s infinite`,
+      color: i % 2 === 0
+        ? `hsl(var(--primary) / ${0.3 + Math.random() * 0.4})`
+        : `hsl(var(--secondary) / ${0.4 + Math.random() * 0.4})`,
+    }));
+  }, []);
 
   return (
     <section className="relative min-h-screen flex flex-col items-center px-6 py-20 overflow-hidden">
