@@ -59,9 +59,10 @@ export const quizQuestions: QuizQuestion[] = [
 
 export interface ResultProfile {
   type: string;
+  subtitle: string;
   whatsHappening: string;
   whyItMatters: string;
-  nextStep: string;
+  nextSteps: string[];
 }
 
 export function computeResult(answers: Record<number, number>): ResultProfile {
@@ -79,42 +80,58 @@ export function computeResult(answers: Record<number, number>): ResultProfile {
   if (topDriver === "Insulin resistance" && categoryScores["Insulin resistance"] >= 1) {
     return {
       type: "Insulin Resistance",
+      subtitle: "Your results suggest signs of insulin dysregulation.",
       whatsHappening:
-        "Your body is producing insulin but struggling to use it efficiently. This causes your pancreas to release even more insulin, which signals your ovaries to produce excess androgens (male hormones). The result is a hormonal cascade that disrupts your cycle, triggers cravings, and makes it harder to maintain a healthy weight.",
+        "Your responses suggest your body may be producing insulin but struggling to use it efficiently. This causes your pancreas to release even more insulin, which signals your ovaries to produce excess androgens (male hormones). The result is a hormonal cascade that disrupts your cycle, triggers cravings, and makes it harder to maintain a healthy weight.",
       whyItMatters:
-        "Unmanaged insulin resistance doesn't just affect your periods — it increases your risk of type 2 diabetes, cardiovascular issues, and chronic inflammation over time. The sugar cravings and energy crashes you experience aren't a lack of willpower; they're your body's chemistry working against you.",
-      nextStep:
-        "Start pairing every carbohydrate with protein and healthy fat — this simple change slows glucose absorption and reduces insulin spikes. For example, add nuts to your rice or have eggs with your toast. Consider asking your doctor about a fasting insulin test to get a clearer picture of where you stand.",
+        "Unmanaged insulin resistance does not just affect your periods. It increases your risk of type 2 diabetes, cardiovascular issues, and chronic inflammation over time. The sugar cravings and energy crashes you experience are not a lack of willpower; they are your body's chemistry working against you.",
+      nextSteps: [
+        "Talk to your GP: Share these indicators with your doctor and ask for a fasting insulin test and HbA1c to get a clearer picture of your metabolic health.",
+        "Consult a Registered Nutritionist: Work with an expert to design a personalised meal plan that stabilises blood sugar — focusing on pairing carbohydrates with protein and healthy fat at every meal.",
+        "Start with one simple change: Add protein to your breakfast and notice how your energy and cravings shift throughout the day.",
+      ],
     };
   } else if (topDriver === "Adrenal fatigue" && categoryScores["Adrenal fatigue"] >= 1) {
     return {
       type: "Adrenal Fatigue",
+      subtitle: "Your results suggest elevated stress-related hormonal patterns.",
       whatsHappening:
-        "Your adrenal glands have been working overtime due to chronic stress, producing excess cortisol and DHEA-S. These stress hormones are disrupting your reproductive hormones, mimicking or worsening PCOS symptoms. Your body is essentially stuck in survival mode, prioritising stress response over fertility and balance.",
+        "Your responses suggest your adrenal glands may have been working overtime due to chronic stress, producing excess cortisol and DHEA-S. These stress hormones are disrupting your reproductive hormones, mimicking or worsening PCOS symptoms. Your body is essentially stuck in survival mode, prioritising stress response over fertility and balance.",
       whyItMatters:
-        "When your nervous system is constantly activated, it suppresses ovulation, disrupts sleep quality, and breaks down muscle while storing fat — especially around the midsection. The exhaustion, anxiety, and hormonal irregularities you feel are your body's way of telling you it can't sustain this pace.",
-      nextStep:
-        "Introduce a daily 10-minute nervous system reset — this could be box breathing, gentle yoga, or simply lying down with your legs elevated. Cut back on high-intensity exercise temporarily and prioritise 7–9 hours of sleep. Your hormones heal when your body feels safe.",
+        "When your nervous system is constantly activated, it suppresses ovulation, disrupts sleep quality, and breaks down muscle while storing fat — especially around the midsection. The exhaustion, anxiety, and hormonal irregularities you feel are your body's way of telling you it cannot sustain this pace.",
+      nextSteps: [
+        "Talk to your GP: Share these indicators with your doctor and request a cortisol and DHEA-S panel to assess your adrenal function.",
+        "Consult a Registered Nutritionist: Work with an expert to build a nourishing protocol that supports your nervous system, including adequate magnesium, B vitamins, and adaptogenic foods.",
+        "Introduce a daily reset: Start with 10 minutes of box breathing, gentle yoga, or simply lying down with your legs elevated. Your hormones heal when your body feels safe.",
+      ],
     };
   } else if (topDriver === "Inflammation" && categoryScores["Inflammation"] >= 1) {
     return {
       type: "Inflammation",
+      subtitle: "Your results suggest persistent inflammation indicators.",
       whatsHappening:
-        "Your body is experiencing chronic low-grade inflammation that is interfering with normal ovarian function and driving excess androgen production. This inflammation often originates in the gut — through food sensitivities, a disrupted microbiome, or intestinal permeability — and sends signals that keep your immune system on high alert.",
+        "Your responses suggest your body may be in a state of low-grade, chronic inflammation. This often originates in the gut through food sensitivities or a disrupted microbiome, which keeps your immune system on high alert. This state interferes with normal ovarian function and drives excess androgen production, which is why traditional weight loss efforts may feel ineffective.",
       whyItMatters:
-        "Chronic inflammation doesn't just cause bloating and digestive discomfort — it actively blocks ovulation, worsens acne and hair growth, and makes your body more resistant to insulin over time. It's a hidden driver that, left unaddressed, can make every other PCOS symptom harder to manage.",
-      nextStep:
-        "Begin a two-week food-symptom diary to identify your personal inflammatory triggers. Common culprits include gluten, dairy, refined sugar, and processed seed oils. Focus on adding anti-inflammatory foods like fatty fish, turmeric, leafy greens, and fermented foods to support gut healing.",
+        "Chronic inflammation does not just cause bloating. It can actively block ovulation and worsen symptoms like acne and unwanted hair growth. Left unaddressed, it makes your body more resistant to insulin over time, acting as a hidden driver that makes every other PCOS symptom harder to manage.",
+      nextSteps: [
+        "Talk to your GP: Share these indicators with your doctor to explore specific inflammatory markers and ensure a comprehensive medical evaluation.",
+        "Consult a Registered Nutritionist: Once you have your clinical picture, the next essential step is to work with an expert to design a personalised anti-inflammatory protocol that supports gut healing and hormonal balance.",
+        "Start a Food-Symptom Diary: In the meantime, begin tracking your meals to identify potential personal triggers like dairy or refined sugar, while adding anti-inflammatory foods like fatty fish and leafy greens.",
+      ],
     };
   } else {
     return {
       type: "Hypothyroid",
+      subtitle: "Your results suggest potential thyroid-related patterns.",
       whatsHappening:
-        "Your thyroid gland may not be producing enough hormones to keep your metabolism, energy, and reproductive system running optimally. Hypothyroidism and PCOS frequently coexist, and an underactive thyroid can slow everything down — your cycle, your digestion, your mood, and your ability to lose weight.",
+        "Your responses suggest your thyroid gland may not be producing enough hormones to keep your metabolism, energy, and reproductive system running optimally. Hypothyroidism and PCOS frequently coexist, and an underactive thyroid can slow everything down — your cycle, your digestion, your mood, and your ability to lose weight.",
       whyItMatters:
-        "An undiagnosed thyroid issue can make PCOS treatment feel ineffective because you're addressing symptoms without tackling a root cause. The persistent fatigue, brain fog, and cold sensitivity you may experience aren't just PCOS — they could be your thyroid calling for attention.",
-      nextStep:
-        "Ask your GP for a comprehensive thyroid panel that includes TSH, free T3, free T4, and thyroid antibodies — not just TSH alone. In the meantime, support your thyroid with selenium-rich foods (Brazil nuts), iodine (seaweed, eggs), and adequate zinc. Prioritise consistent sleep to give your thyroid the rest it needs.",
+        "An undiagnosed thyroid issue can make PCOS treatment feel ineffective because you may be addressing symptoms without tackling a root cause. The persistent fatigue, brain fog, and cold sensitivity you experience are not just PCOS — they could be your thyroid calling for attention.",
+      nextSteps: [
+        "Talk to your GP: Ask for a comprehensive thyroid panel that includes TSH, free T3, free T4, and thyroid antibodies — not just TSH alone.",
+        "Consult a Registered Nutritionist: Work with an expert to support your thyroid with selenium-rich foods (Brazil nuts), iodine (seaweed, eggs), and adequate zinc through a personalised nutrition plan.",
+        "Prioritise consistent sleep: Give your thyroid the rest it needs by maintaining a regular sleep schedule of 7–9 hours per night.",
+      ],
     };
   }
 }
