@@ -41,11 +41,32 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="rounded-[24px] p-8 space-y-4 bg-gradient-to-br from-card via-card to-secondary/40 shadow-[0_4px_20px_-4px_hsl(var(--secondary)/0.5),0_0_40px_-8px_hsl(var(--primary)/0.15)]">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+          <div className="relative rounded-[24px] p-8 space-y-4 bg-card overflow-hidden">
+            {/* Animated gradient halo */}
+            <div
+              className="pointer-events-none absolute -inset-[1px] rounded-[24px] overflow-hidden"
+              aria-hidden="true"
+            >
+              <div
+                className="absolute inset-[-40%] animate-[halo-spin_6s_linear_infinite]"
+                style={{
+                  background: `conic-gradient(
+                    from 0deg,
+                    hsl(var(--primary) / 0.35),
+                    hsl(var(--secondary) / 0.5),
+                    hsl(var(--primary) / 0.15),
+                    hsl(var(--secondary) / 0.4),
+                    hsl(var(--primary) / 0.35)
+                  )`,
+                }}
+              />
+            </div>
+            {/* Inner card surface */}
+            <div className="absolute inset-[1.5px] rounded-[23px] bg-gradient-to-br from-card via-card to-secondary/30 pointer-events-none" />
+            <h3 className="relative z-10 text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
-            <ul className="space-y-4">
+            <ul className="relative z-10 space-y-4">
               {result.nextSteps.map((step, idx) => {
                 const colonIdx = step.indexOf(":");
                 const hasLabel = colonIdx > 0 && colonIdx < 40;
