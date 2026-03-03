@@ -25,7 +25,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
         {/* Content Cards */}
         <div className="space-y-6">
           {/* What's Actually Happening */}
-          <div className="rounded-[24px] p-8 space-y-3" style={{ backgroundColor: '#FAF3F0', boxShadow: '0 0 25px 5px #D6C1B8' }}>
+          <div className="rounded-[24px] bg-card p-8 space-y-3 shadow-[0_4px_20px_-4px_hsl(var(--secondary)/0.5)]">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               What's Actually Happening
             </h3>
@@ -33,7 +33,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Why This Matters */}
-          <div className="rounded-[24px] p-8 space-y-3" style={{ backgroundColor: '#FAF3F0', boxShadow: '0 0 25px 5px #D6C1B8' }}>
+          <div className="rounded-[24px] bg-card p-8 space-y-3 shadow-[0_4px_20px_-4px_hsl(var(--secondary)/0.5)]">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Why This Matters
             </h3>
@@ -41,7 +41,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="rounded-[24px] p-8 space-y-4" style={{ backgroundColor: '#D6C1B8', boxShadow: '0 0 30px 8px #B68D8D' }}>
+          <div className="rounded-[24px] bg-secondary p-8 space-y-4 shadow-[0_6px_24px_-4px_hsl(var(--primary)/0.35)]">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
