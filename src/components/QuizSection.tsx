@@ -18,9 +18,9 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
   if (!question) return null;
 
   const handleSelect = (optionIdx: number) => {
-    onAnswer(currentQ, optionIdx);
+    onAnswer(safeQ, optionIdx);
 
-    if (currentQ < total - 1) {
+    if (safeQ < total - 1) {
       setAnimating(true);
       setTimeout(() => {
         setCurrentQ((prev) => prev + 1);
@@ -39,7 +39,7 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
     }
   };
 
-  const isLast = currentQ === total - 1;
+  const isLast = safeQ === total - 1;
   const allAnswered = Object.keys(answers).length === total;
 
   return (
@@ -48,7 +48,7 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
         {/* Progress */}
         <div className="space-y-2">
           <div className="flex justify-between text-sm text-muted-foreground">
-            <span>Question {currentQ + 1} of {total}</span>
+            <span>Question {safeQ + 1} of {total}</span>
             <span>{Math.round(progress)}%</span>
           </div>
           <div className="w-full h-1.5 rounded-full bg-muted overflow-hidden">
@@ -67,7 +67,7 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
 
           <div className="mt-8 flex gap-4 justify-center">
             {question.options.map((option, idx) => {
-              const isSelected = answers[currentQ] === idx;
+              const isSelected = answers[safeQ] === idx;
               return (
                 <button
                   key={idx}
