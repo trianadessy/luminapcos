@@ -98,3 +98,33 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@keyframes sparkle-float {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  80% {
+    opacity: 0.6;
+    transform: translateY(-60px) scale(0.6);
+  }
+}
+
+@keyframes sparkle-drift {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0) rotate(0deg);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(5px, -15px) scale(1) rotate(45deg);
+  }
+  85% {
+    opacity: 0.2;
+    transform: translate(-5px, -50px) scale(0.3) rotate(180deg);
+  }
+}

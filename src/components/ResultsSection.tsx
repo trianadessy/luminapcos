@@ -1,14 +1,48 @@
 import { ResultProfile } from "@/data/quizData";
+import { useMemo } from "react";
 
 interface ResultsSectionProps {
   result: ResultProfile;
   onRetake: () => void;
 }
 
+const Sparkle = ({ style }: { style: React.CSSProperties }) => (
+  <div
+    className="absolute pointer-events-none"
+    style={style}
+  >
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path
+        d="M6 0L7.2 4.8L12 6L7.2 7.2L6 12L4.8 7.2L0 6L4.8 4.8L6 0Z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+);
+
 const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
+  const sparkles = useMemo(() =>
+    Array.from({ length: 14 }, (_, i) => ({
+      left: `${8 + Math.random() * 84}%`,
+      top: `${5 + Math.random() * 90}%`,
+      animationDelay: `${i * 0.7 + Math.random() * 2}s`,
+      animationDuration: `${3 + Math.random() * 3}s`,
+      fontSize: `${6 + Math.random() * 8}px`,
+      animation: i % 2 === 0
+        ? `sparkle-float ${3 + Math.random() * 3}s ease-in-out ${i * 0.7 + Math.random() * 2}s infinite`
+        : `sparkle-drift ${4 + Math.random() * 3}s ease-in-out ${i * 0.5 + Math.random() * 2}s infinite`,
+    })), []
+  );
+
   return (
-    <section className="min-h-screen flex flex-col items-center px-6 py-20">
-      <div className="w-full max-w-3xl space-y-10">
+    <section className="relative min-h-screen flex flex-col items-center px-6 py-20 overflow-hidden">
+      {/* Floating sparkles */}
+      <div className="absolute inset-0 pointer-events-none text-primary/25" aria-hidden="true">
+        {sparkles.map((s, i) => (
+          <Sparkle key={i} style={s} />
+        ))}
+      </div>
+      <div className="relative w-full max-w-3xl space-y-10">
         {/* Header */}
         <div className="text-center space-y-3">
           <div className="inline-block px-4 py-1.5 rounded-full bg-secondary text-sm font-medium text-secondary-foreground">
