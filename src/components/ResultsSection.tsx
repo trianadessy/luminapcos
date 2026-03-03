@@ -41,7 +41,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="rounded-[24px] bg-secondary p-8 space-y-4 shadow-[0_6px_24px_-4px_hsl(var(--primary)/0.35)]">
+          <div className="rounded-[24px] p-8 space-y-4 bg-gradient-to-br from-card via-card to-secondary/40 shadow-[0_4px_20px_-4px_hsl(var(--secondary)/0.5),0_0_40px_-8px_hsl(var(--primary)/0.15)]">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
