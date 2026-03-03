@@ -75,16 +75,16 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="relative rounded-[24px] overflow-hidden p-[1px]"
+          <div className="relative rounded-[24px] overflow-hidden p-[2px]"
             style={{
-              boxShadow: `0 0 30px hsl(var(--primary) / 0.12), 0 0 80px hsl(var(--secondary) / 0.08)`,
+              boxShadow: `0 0 25px hsl(var(--primary) / 0.25), 0 0 60px hsl(var(--secondary) / 0.15)`,
             }}
           >
             {/* Rotating gradient border */}
             <div
-              className="absolute -inset-[50%] animate-[halo-spin_10s_linear_infinite] opacity-60"
+              className="absolute -inset-[50%] animate-[halo-spin_8s_linear_infinite]"
               style={{
-                background: `conic-gradient(from 0deg, hsl(var(--secondary) / 0.6), hsl(var(--primary) / 0.8), transparent, hsl(var(--secondary) / 0.6))`,
+                background: `conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--primary) / 0.4), hsl(var(--secondary)), hsl(var(--primary)))`,
               }}
             />
             <div className="relative rounded-[23px] bg-card p-8 space-y-4">
