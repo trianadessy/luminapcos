@@ -41,7 +41,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="rounded-[24px] p-8 space-y-4" style={{ backgroundColor: '#B68D8D', boxShadow: '0 0 30px 8px rgba(140, 100, 100, 0.7)' }}>
+          <div className="rounded-[24px] p-8 space-y-4" style={{ backgroundColor: '#D6C1B8', boxShadow: '0 0 30px 8px #B68D8D' }}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
