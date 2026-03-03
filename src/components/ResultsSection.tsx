@@ -41,7 +41,13 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="rounded-[24px] p-8 space-y-4 bg-gradient-to-br from-card via-card to-secondary/40 shadow-[0_4px_20px_-4px_hsl(var(--secondary)/0.5),0_0_40px_-8px_hsl(var(--primary)/0.15)]">
+          <div className="relative rounded-[24px] overflow-hidden p-[1.5px]"
+            style={{
+              background: `linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--secondary)))`,
+              boxShadow: `0 0 20px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--secondary) / 0.2), inset 0 0 20px hsl(var(--primary) / 0.1)`,
+            }}
+          >
+            <div className="rounded-[23px] bg-card p-8 space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
@@ -59,6 +65,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
                 );
               })}
             </ul>
+            </div>
           </div>
         </div>
 
