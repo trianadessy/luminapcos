@@ -41,7 +41,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           </div>
 
           {/* Your Next Step */}
-          <div className="glass rounded-lg p-8 space-y-4 bg-primary/5">
+          <div className="glass rounded-lg p-8 space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
@@ -53,14 +53,7 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
                   <li key={idx} className="text-foreground leading-relaxed flex items-start gap-3">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-primary shrink-0" />
                     <span>
-                      {hasLabel ? (
-                        <>
-                          <strong>{step.slice(0, colonIdx + 1)}</strong>
-                          {step.slice(colonIdx + 1)}
-                        </>
-                      ) : (
-                        step
-                      )}
+                      {step}
                     </span>
                   </li>
                 );
