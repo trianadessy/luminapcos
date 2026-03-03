@@ -43,11 +43,17 @@ const ResultsSection = ({ result, onRetake }: ResultsSectionProps) => {
           {/* Your Next Step */}
           <div className="relative rounded-[24px] overflow-hidden p-[1.5px]"
             style={{
-              background: `linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--secondary)))`,
-              boxShadow: `0 0 20px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--secondary) / 0.2), inset 0 0 20px hsl(var(--primary) / 0.1)`,
+              boxShadow: `0 0 20px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--secondary) / 0.2)`,
             }}
           >
-            <div className="rounded-[23px] bg-card p-8 space-y-4">
+            {/* Rotating gradient border */}
+            <div
+              className="absolute -inset-[50%] animate-[halo-spin_4s_linear_infinite]"
+              style={{
+                background: `conic-gradient(from 0deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--secondary)))`,
+              }}
+            />
+            <div className="relative rounded-[23px] bg-card p-8 space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
               Your Next Step
             </h3>
