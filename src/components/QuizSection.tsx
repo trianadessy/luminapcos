@@ -88,23 +88,26 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
         </div>
 
         {/* Navigation - pinned to bottom */}
-        <div className="flex justify-between items-center pt-4 flex-shrink-0">
+        <div className="flex justify-between items-center pt-4 flex-shrink-0 h-14">
           <button
             onClick={handleBack}
-            disabled={currentQ === 0}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className={`text-sm text-muted-foreground hover:text-foreground transition-colors ${
+              currentQ === 0 ? "invisible" : ""
+            }`}
           >
             ← Back
           </button>
 
-          {isLast && allAnswered && (
-            <button
-              onClick={onComplete}
-              className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] shadow-md"
-            >
-              See My Results
-            </button>
-          )}
+          <div className="w-[160px] flex justify-end">
+            {isLast && allAnswered && (
+              <button
+                onClick={onComplete}
+                className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] shadow-md"
+              >
+                See My Results
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>
