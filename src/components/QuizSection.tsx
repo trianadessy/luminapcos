@@ -44,7 +44,7 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
-      <div className="w-full max-w-xl flex flex-col" style={{ height: '420px' }}>
+      <div className="w-full max-w-xl mx-auto flex flex-col" style={{ height: '500px' }}>
         {/* Progress - locked position */}
         <div className="space-y-2 flex-shrink-0">
           <div className="flex justify-between text-sm text-muted-foreground">
@@ -59,36 +59,37 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
           </div>
         </div>
 
-        {/* Question + buttons - fixed height, top-aligned question */}
-        <div className={`flex-1 flex flex-col transition-all duration-300 ${animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
-          <div className="h-[160px] flex items-start pt-8 flex-shrink-0">
+        {/* Question text - fixed height safe zone with scroll if needed */}
+        <div className={`transition-all duration-300 ${animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
+          <div className="h-[220px] flex items-start pt-8 overflow-y-auto flex-shrink-0">
             <h2 className="text-2xl md:text-3xl font-serif font-medium leading-snug text-foreground">
               {question.question}
             </h2>
           </div>
+        </div>
 
-          <div className="flex gap-4 justify-center flex-shrink-0">
-            {question.options.map((option, idx) => {
-              const isSelected = answers[safeQ] === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => handleSelect(idx)}
-                  className={`px-10 py-4 rounded-lg border transition-all duration-200 text-sm md:text-base font-medium ${
-                    isSelected
-                      ? "bg-primary text-primary-foreground border-primary shadow-md"
-                      : "glass border-border hover:border-primary/40 hover:shadow-sm text-foreground"
-                  }`}
-                >
-                  {option}
-                </button>
-              );
-            })}
-          </div>
+        {/* Answer buttons - static position, never moves */}
+        <div className="flex gap-4 justify-center flex-shrink-0 py-4">
+          {question.options.map((option, idx) => {
+            const isSelected = answers[safeQ] === idx;
+            return (
+              <button
+                key={idx}
+                onClick={() => handleSelect(idx)}
+                className={`px-10 py-4 rounded-lg border transition-all duration-200 text-sm md:text-base font-medium ${
+                  isSelected
+                    ? "bg-primary text-primary-foreground border-primary shadow-md"
+                    : "glass border-border hover:border-primary/40 hover:shadow-sm text-foreground"
+                }`}
+              >
+                {option}
+              </button>
+            );
+          })}
         </div>
 
         {/* Navigation - pinned to bottom */}
-        <div className="flex justify-between items-center pt-4 flex-shrink-0 h-14">
+        <div className="flex justify-between items-center pt-4 flex-shrink-0 h-14 mt-auto">
           <button
             onClick={handleBack}
             className={`text-sm text-muted-foreground hover:text-foreground transition-colors ${
