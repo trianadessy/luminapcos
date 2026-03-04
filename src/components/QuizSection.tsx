@@ -44,8 +44,8 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
-      <div className="w-full max-w-xl flex flex-col" style={{ minHeight: '360px' }}>
-        {/* Progress - fixed position */}
+      <div className="w-full max-w-xl flex flex-col" style={{ height: '420px' }}>
+        {/* Progress - locked position */}
         <div className="space-y-2 flex-shrink-0">
           <div className="flex justify-between text-sm text-muted-foreground">
             <span>Question {safeQ + 1} of {total}</span>
@@ -59,15 +59,15 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
           </div>
         </div>
 
-        {/* Question - fixed height container */}
-        <div className={`flex-1 flex flex-col justify-center transition-all duration-300 ${animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
-          <div className="min-h-[120px] flex items-center">
+        {/* Question + buttons - fixed height, top-aligned question */}
+        <div className={`flex-1 flex flex-col transition-all duration-300 ${animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
+          <div className="h-[180px] flex items-start pt-10">
             <h2 className="text-2xl md:text-3xl font-serif font-medium leading-snug text-foreground">
               {question.question}
             </h2>
           </div>
 
-          <div className="mt-8 flex gap-4 justify-center flex-shrink-0">
+          <div className="flex gap-4 justify-center flex-shrink-0">
             {question.options.map((option, idx) => {
               const isSelected = answers[safeQ] === idx;
               return (
