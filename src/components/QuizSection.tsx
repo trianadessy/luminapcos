@@ -61,7 +61,7 @@ const QuizSection = ({ answers, onAnswer, onComplete }: QuizSectionProps) => {
 
         {/* Question + buttons - fixed height, top-aligned question */}
         <div className={`flex-1 flex flex-col transition-all duration-300 ${animating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
-          <div className="h-[180px] flex items-start pt-10">
+          <div className="h-[160px] flex items-start pt-8 flex-shrink-0">
             <h2 className="text-2xl md:text-3xl font-serif font-medium leading-snug text-foreground">
               {question.question}
             </h2>
